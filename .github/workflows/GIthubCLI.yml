@@ -1,0 +1,16 @@
+name: GitHub CLI Workflow
+
+on:
+  push:
+
+jobs:
+  github-cli:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: List all workflow executions
+        run: gh workflow list -a
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
